@@ -10,7 +10,7 @@
 }
 
 
-html,
+/* html,
 body {
     height: 100%;
     overflow-y: scroll;
@@ -21,7 +21,7 @@ body {
 
 body::-webkit-scrollbar {
     display: none;
-}
+} */
 
 
 /* container */
@@ -32,7 +32,40 @@ body::-webkit-scrollbar {
     font-size: 2rem;
     padding: 20px;
     color: #222;
+    animation: slide-in-top;
 }
+
+.container {
+	-webkit-animation: slide-in-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+@-webkit-keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 
 .container1 {
     letter-spacing: 7x;
@@ -54,7 +87,39 @@ body::-webkit-scrollbar {
     text-transform: uppercase;
     color: #222;
     padding-left: 10px;
+    animation: scroll-left ;
+    animation-timing-function: linear;
 }
+
+.portfolio{-webkit-animation:slide-in-left 1s cubic-bezier(.25,.46,.45,.94) both;animation:slide-in-left 1s cubic-bezier(.25,.46,.45,.94) both}
+
+
+
+@-webkit-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 
 .ui {
     display: flex;
@@ -240,7 +305,8 @@ body::-webkit-scrollbar {
 }
 
 .section4,
-.section5 {
+.section5,
+.section7 {
     margin-top: 2rem;
     text-transform: uppercase;
 }
@@ -267,14 +333,13 @@ body::-webkit-scrollbar {
 }
 
 
-
-
 .scroll-text1 a,
 .scroll-text2 a,
-.scroll-text3 a {
+.scroll-text3 a,
+.scroll-text4 a  {
     text-decoration: none;
     color: #222;
-    /* Change as needed */
+
     font-size: 140px;
     font-weight: 900;
 }
@@ -290,6 +355,11 @@ body::-webkit-scrollbar {
 }
 
 .scroll-text3:hover {
+    animation-play-state: paused;
+    animation-duration: 30s;
+}
+
+.scroll-text4:hover {
     animation-play-state: paused;
     animation-duration: 30s;
 }
@@ -325,6 +395,26 @@ body::-webkit-scrollbar {
 }
 
 .scroll-text2 {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-right 20s linear infinite;
+    will-change: transform;
+    animation-timing-function: linear;
+
+}
+
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.scroll-text4 {
     display: inline-block;
     padding-left: 100%;
     animation: scroll-right 20s linear infinite;
@@ -400,6 +490,9 @@ body::-webkit-scrollbar {
     animation-timing-function: linear;
     background-color: #222;
 }
+
+
+
 
 @keyframes scroll-left {
     0% {
@@ -551,6 +644,7 @@ footer {
     .scroll-text1 a,
     .scroll-text2 a,
     .scroll-text3 a,
+    .scroll-text4 a
     .scroll-text5 a {
         font-size: 60px;
     }
@@ -617,3 +711,11 @@ footer {
     padding-right: 0;
   }
 }
+
+section.section6 {
+  --progress: 0;
+  animation: progress both linear;
+  animation-timeline: scroll(root);
+  counter-set: p var(--progress);
+}
+
